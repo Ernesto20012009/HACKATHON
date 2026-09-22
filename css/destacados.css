@@ -1,0 +1,59 @@
+/* destacados */
+
+/* Hero */
+.hero-container {
+  min-height: 85vh;
+}
+
+.hero-bg {
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.hero-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Espaciado y letras */
+.letter-spacing-2 {
+  letter-spacing: 2px;
+}
+
+.fs-7 {
+  font-size: 0.8rem;
+}
+
+/* Tarjetas efecto */
+.product-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12) !important;
+}
+
+.product-img {
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.08);
+}
+
+/* Animación flecha */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-12px); }
+  60% { transform: translateY(-5px); }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
