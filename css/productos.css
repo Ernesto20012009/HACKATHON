@@ -14,8 +14,8 @@
     padding: 16px;/*Espacio entre el borde y contendio de la imagen*/
     width: 280px; /*Mismo ancho de 280 pixeles para que todas las tarjetas sean identicas */
     text-align: center;/*centra ek texto, imagenes y botones dentro de la tarjeta*/
-    box-shadow:  0 4px 10px red;/*aplica una sombra suave difuminadad en el borde de la tarjeta*/
-    background-color: whitesmoke; /*fondo blanco de la tarjeta*/
+    box-shadow:  0 4px 10px rgb(235, 231, 23);/*aplica una sombra suave difuminadad en el borde de la tarjeta*/
+    background-color: white; /*fondo blanco de la tarjeta*/
 }
 /*Estilo para las imagenes*/
 .card-product img{ /*Establecer reglas para la imagen dentro de la tarjeta*/
@@ -40,7 +40,7 @@
 /* Botón de compra */
 .btn-agregar {
   background-color: #111;/* Fondo negro / gris muy oscuro */
-  color: #fff;/* Texto en color blanco para lograr contraste */
+  color: white;/* Texto en color blanco para lograr contraste */
   border: none;/* Quita el borde tosco predeterminado que traen los navegadores */
   padding: 10px 16px;/* Relleno interno: 10px arriba/abajo y 16px a la izquierda/derecha */
   border-radius: 6px;/* Redondea ligeramente las esquinas del botón */
@@ -51,5 +51,5 @@
 
 /* Estado del botón al pasar el cursor por encima (hover) */
 .btn-agregar:hover {
-  background-color: #203a81;/* Cambia a un gris un poco más claro como respuesta visual al usuario */
+  background-color: #204ecc;/* Cambia a un gris un poco más claro como respuesta visual al usuario */
 }
