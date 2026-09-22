@@ -1,31 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Selección de elementos del DOM
-  const header = document.getElementById('header');
-  const navToggle = document.getElementById('nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const toggleIcon = document.getElementById('toggle-icon');
-  const navLinks = document.querySelectorAll('.nav-link');
+document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
+  event.preventDefault(); // Evita que la página se recargue
 
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+  // Capturar los valores
+  const nombre = document.getElementById('nombre').value.trim();
+  const correo = document.getElementById('correo').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+  const mensajeError = document.getElementById('mensaje-error');
 
-    //Cambiar entre íconos menú hamburguesa y tache para cerrarlo
-    if (navMenu.classList.contains('active')) {
-      toggleIcon.classList.remove('fa-bars');
-      toggleIcon.classList.add('fa-xmark');
-    } else {
-      toggleIcon.classList.remove('fa-xmark');
-      toggleIcon.classList.add('fa-bars');
-    }
-  });
+  // Validar campos vacíos
+  if (nombre === '' || correo === '' || mensaje === '') {
+    mensajeError.style.color = 'red';
+    mensajeError.textContent = 'Por favor, llena todos los campos.';
+  } else {
+    mensajeError.style.color = 'green';
+    mensajeError.textContent = '¡Gracias! Mensaje enviado con éxito.';
 
-  //Cerrar el menú anvorgesa al hacer clic en cualquier enlace
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.remove('active');
-      toggleIcon.classList.remove('fa-xmark');
-      toggleIcon.classList.add('fa-bars');
-    });
-  });
+    // Limpiar el formulario
+    document.getElementById('formulario-contacto').reset();
+  }
 });
-
