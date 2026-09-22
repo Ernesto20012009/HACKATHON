@@ -1,0 +1,21 @@
+SUBIR CAMBIOS EN DEVELOP-> desde la rama develop
+git status
+git add .
+git commit -m "comentario"
+git push origin develop
+
+
+DESCARGAR CAMBIOS NUEVOS EN SUS PCS de la rama DEVELOP
+1.- Cambiarse a develop
+git checkout develop
+2.- Descargar cambios nuevos
+git pull origin develop
+
+
+DESCARGAR CAMBIOS EN SU PROPIA RAMA si borrar lo que llevan hecho
+
+1.-Tienen que estar en su propia rama -> ejemplo HACKATON (alberto)
+git add .
+git commit -m "comentario"
+2.-Traer lo nuevo de develop hacia su rama
+git pull origin develop
