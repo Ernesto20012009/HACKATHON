@@ -1,4 +1,4 @@
-/* destacados */
+/* ====== SECCIÓN DESTACADOS - Mario ====== */
 
 // Animación de entrada del Hero
 window.addEventListener('load', function() {
@@ -10,15 +10,27 @@ window.addEventListener('load', function() {
   }, 200);
 });
 
-// Scroll suave a productos
-function scrollToProductos() {
-  const section = document.getElementById('productos-section');
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Scroll suave a la sección de Productos
+function irAProductos() {
+  const seccionProductos = document.getElementById('productos');
+  if (seccionProductos) {
+    seccionProductos.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   }
 }
 
-// Asignar a todos los botones
-document.querySelectorAll('.btn-danger, .btn-outline-light, .btn-dark').forEach(btn => {
-  btn.addEventListener('click', scrollToProductos);
+// Conectar TODOS los botones a Productos
+document.querySelectorAll('.btn-danger, .btn-outline-light, .btn-dark').forEach(boton => {
+  boton.addEventListener('click', irAProductos);
+});
+
+// Corregir enlace "Destacados" de la barra de navegación
+document.querySelector('a.nav-link[href="#destacados"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  const destacados = document.getElementById('destacados-section');
+  if (destacados) {
+    destacados.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 });
