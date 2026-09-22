@@ -1,0 +1,55 @@
+/*Cuadricula para mostrar productos en columnas*/
+.products-grid {/* clase products-grid*/
+    display: flex; /*activar flexbox*/
+    flex-wrap: wrap;/*hace que las tarjetas bajen a la siguiente fila si ya no caben en pantalla*/
+    justify-content: center; /*centra las tarjetas horzontalmente dentro del contenedor*/
+    gap: 24px;/*Espacios entre cada tarjeta*/
+    padding: 20px;/*Margen interno para que las tarjetas no toquen los bordes*/
+}
+
+/*Clase card-product*/ /*Tarjeta individual de cada producto*/
+.card-product{
+    border: 1px solid black;/*agrega un borde a cada imagen*/
+    border-radius: 15px;/*Redondea las esquinas de nuestros bordes de las tarjetas*/
+    padding: 16px;/*Espacio entre el borde y contendio de la imagen*/
+    width: 280px; /*Mismo ancho de 280 pixeles para que todas las tarjetas sean identicas */
+    text-align: center;/*centra ek texto, imagenes y botones dentro de la tarjeta*/
+    box-shadow:  0 4px 10px red;/*aplica una sombra suave difuminadad en el borde de la tarjeta*/
+    background-color: whitesmoke; /*fondo blanco de la tarjeta*/
+}
+/*Estilo para las imagenes*/
+.card-product img{ /*Establecer reglas para la imagen dentro de la tarjeta*/
+    width: 100%; /*Ocupa el 100% del ancho interno disponible de la tarjeta*/
+    height: 220px;/*limita la altura para que la imagen no se vea mas grande*/
+    object-fit: contain;/*escala la foto de los 220 px conservando su proporcion sin recortar ni deformar la imagen*/
+    margin-bottom: 12px;/*Margen de separacion de 12 px debajo de la foto, antes del texto*/
+}
+/*Titulos de tarjeta*/
+.card-product h3{
+    font-size: 1.2rem;/*tamanio de la letra del titulo*/
+    margin: 8px 0; /*separa el titulo arriba y abajo, dejando 0px a los costados*/
+}
+
+
+.card-product .precio {/* Etiqueta del precio */
+  font-weight: bold;/* Pone el texto en negrita para destacarlo a primera vista */
+  color: #2e7d32;/* Aplica un color verde para identificarlo visualmente con dinero/precio */
+  font-size: 1.1rem;/* Ajusta el tamaño de letra ligeramente más grande que el texto común */
+}
+
+/* Botón de compra */
+.btn-agregar {
+  background-color: #111;/* Fondo negro / gris muy oscuro */
+  color: #fff;/* Texto en color blanco para lograr contraste */
+  border: none;/* Quita el borde tosco predeterminado que traen los navegadores */
+  padding: 10px 16px;/* Relleno interno: 10px arriba/abajo y 16px a la izquierda/derecha */
+  border-radius: 6px;/* Redondea ligeramente las esquinas del botón */
+  cursor: pointer;/* Transforma el cursor en una mano interactiva al pasar por encima */
+  width: 100%;/* Hace que el botón abarque todo el ancho disponible de la tarjeta */
+  transition: background-color 0.2s;/* Anima el cambio de color durante 0.2 segundos de manera fluida */
+}
+
+/* Estado del botón al pasar el cursor por encima (hover) */
+.btn-agregar:hover {
+  background-color: #203a81;/* Cambia a un gris un poco más claro como respuesta visual al usuario */
+}
