@@ -1,133 +1,344 @@
-#servicios {
-    background-color: #0d0d0d;
-    color: white;
-    padding: 60px 0;
-}
+/* ==========================================================================
+   RESETEO Y CONFIGURACIÓN GLOBAL
+   ========================================================================== */
 
-.servicio {
-    padding: 30px 24px;
-}
-
-.servicio h2 {
-    margin-bottom: 30px;
-}
-
-.servicio h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-}
-
-.servicio p {
-    color: #999;
-    line-height: 1.6;
-}
-
-.servicio:hover{
-    background-color: rgba(17, 17, 17);
-}
-
-.servicio:hover h3{
-    color: rgba(205, 233, 59);
-}
-
+/* Selector universal: aplica a todos los elementos del DOM */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* Remueve los márgenes exteriores predeterminados del navegador */
+  padding: 0; /* Remueve los rellenos interiores predeterminados del navegador */
+  box-sizing: border-box; /* Garantiza que padding y border no alteren el ancho o alto total calculado */
 }
 
+/* Raíz del documento HTML */
+html {
+  scroll-padding-top: 80px; /* Compensación superior para evitar que el header fijo tape los encabezados al navegar */
+  scroll-behavior: smooth; /* Activa el desplazamiento animado suave en lugar de saltos bruscos entre secciones */
+}
+
+/* Cuerpo general de la página */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* Pila de fuentes nativas del sistema para carga inmediata */
+  color: #212529; /* Color base de texto en gris oscuro de alto contraste */
+  background-color: #ffffff; /* Color de fondo base blanco */
+}
+
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN Y HEADER (Alberto)
+   ========================================================================== */
+
+/* Encabezado contenedor superior */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #0d0d0d;
-  z-index: 1000;
+  position: fixed; /* Mantiene la barra fija en la parte superior durante todo el scroll */
+  top: 0; /* Alinea al borde superior absoluto */
+  left: 0; /* Alinea al borde izquierdo absoluto */
+  width: 100%; /* Ocupa el ancho completo horizontal de la pantalla */
+  background-color: #0d0d0d; /* Fondo oscuro sólido de estilo premium */
+  z-index: 1000; /* Asegura que el navbar se posicione por encima de banners y tarjetas */
 }
 
+/* Contenedor interno de la barra de navegación */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.2rem 2rem;
-  transition: padding 0.3s ease;
+  display: flex; /* Distribuye el logo, menú y botones mediante Flexbox */
+  justify-content: space-between; /* Separa los extremos: logo a la izquierda y menú/botones a la derecha */
+  align-items: center; /* Centra verticalmente todos los elementos de la barra */
+  max-width: 1200px; /* Limita la amplitud máxima para evitar dispersión en monitores anchos */
+  margin: 0 auto; /* Centra horizontalmente el contenedor en la pantalla */
+  padding: 1.2rem 2rem; /* Espaciado interno: 1.2rem arriba/abajo y 2rem a los costados */
+  transition: padding 0.3s ease; /* Transición fluida ante posibles cambios dinámicos */
 }
 
+/* Logotipo corporativo de la tienda */
 .logo {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  color: #ffffff; /* Color de texto blanco puro */
+  font-size: 1.5rem; /* Tamaño de fuente visible y jerárquico */
+  font-weight: bold; /* Tipografía en negrita */
+  text-decoration: none; /* Elimina la línea de subrayado nativa de los enlaces */
+  display: flex; /* Alinea el ícono del balón y el texto en la misma línea */
+  align-items: center; /* Centra verticalmente el ícono junto a las letras */
+  gap: 0.5rem; /* Separación horizontal entre el ícono y el texto de marca */
 }
 
+/* Lista contenedora de los enlaces de navegación */
 .nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
+  display: flex; /* Coloca las opciones del menú horizontalmente una al lado de otra */
+  list-style: none; /* Elimina los puntos y viñetas predeterminadas de la lista */
+  gap: 2rem; /* Espacio horizontal constante de 2rem entre cada enlace */
+  margin: 0; /* Anula cualquier margen residual de la lista */
+  padding: 0; /* Anula cualquier relleno residual de la lista */
 }
 
+/* Enlace individual del menú */
 .nav-link {
-  color: #cbd5e1;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #cbd5e1; /* Tono gris claro para mantener una jerarquía visual limpia */
+  text-decoration: none; /* Elimina el subrayado en el enlace */
+  font-weight: 500; /* Grosor de letra intermedio para legibilidad */
+  transition: color 0.3s ease; /* Suaviza el cambio de color al interactuar */
+  display: flex; /* Permite estructurar íconos o etiquetas internas con alineación flexible */
+  align-items: center; /* Centra verticalmente el contenido interior del enlace */
 }
 
+/* Estado de interacción al pasar el cursor sobre los enlaces */
 .nav-link:hover {
-  color: rgba(205, 233, 59);
+  color: rgb(205, 233, 59); /* Cambia al tono verde lima representativo de la identidad deportiva */
 }
 
-
+/* Botón hamburguesa para dispositivos móviles */
 .nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 1.8rem;
-  cursor: pointer;
+  display: none; /* Oculto por defecto en pantallas medianas y de escritorio */
+  background: none; /* Sin fondo de botón estándar */
+  border: none; /* Sin bordes predeterminados */
+  color: #ffffff; /* Color blanco para las barras del ícono */
+  font-size: 1.8rem; /* Tamaño adecuado para facilitar la pulsación táctil */
+  cursor: pointer; /* Cambia el puntero a mano para señalar interactividad */
 }
 
+/* ==========================================================================
+   BOTÓN DEL CARRITO EN NAVBAR (Neto)
+   ========================================================================== */
+
+/* Botón transparente del carrito de compras siempre visible */
+.btn-cart-nav {
+  background: transparent !important; /* Elimina por completo el recuadro blanco predeterminado del navegador */
+  border: none !important; /* Remueve cualquier borde nativo */
+  outline: none !important; /* Evita contornos toscos al hacer clic o foco */
+  box-shadow: none !important; /* Elimina sombras o efectos de relieve no deseados */
+  cursor: pointer; /* Muestra el cursor interactivo */
+  padding: 6px 8px; /* Área de contacto cómoda para clics y toques táctiles */
+  display: inline-flex; /* Permite centrar el ícono manteniendo comportamiento en línea */
+  align-items: center; /* Centra verticalmente el ícono dentro de su caja */
+  justify-content: center; /* Centra horizontalmente el ícono dentro de su caja */
+  transition: transform 0.2s ease; /* Transición suave para microinteracción visual */
+}
+
+/* Ícono interior del carrito de compras */
+.btn-cart-nav i {
+  color: #ffffff; /* Color blanco sólido a juego con el tema del navbar */
+  transition: transform 0.2s ease, color 0.2s ease; /* Suaviza el zoom y cambio de color al interactuar */
+}
+
+/* Efecto hover al pasar el cursor sobre el botón del carrito */
+.btn-cart-nav:hover i {
+  transform: scale(1.15); /* Aumenta ligeramente el tamaño del ícono */
+  color: rgb(205, 233, 59); /* Resalta en tono lima para indicar estado activo */
+}
+
+/* Burbuja numérica con la cantidad de productos agregados */
+#cart-count {
+  font-size: 0.7rem; /* Tamaño de tipografía compacto para encajar en el círculo */
+  padding: 0.35em 0.55em; /* Proporción interna equilibrada para mantener forma circular/píldora */
+}
+
+/* ==========================================================================
+   COMPORTAMIENTO RESPONSIVO DEL MENÚ (Móviles y Tablets)
+   ========================================================================== */
+
+/* Reglas aplicables a pantallas de 768px o menores */
 @media screen and (max-width: 768px) {
+  /* Muestra el botón de tres líneas en móviles */
   .nav-toggle {
-    display: block;
+    display: block; /* Vuelve visible el botón hamburguesa */
   }
 
-
+  /* Menú desplegable adaptado a pantallas pequeñas */
   .nav-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #0d0d0d;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 0;
-    gap: 1.5rem;
-    
-
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
+    position: absolute; /* Desplaza el menú debajo del encabezado sin empujar el diseño */
+    top: 100%; /* Inicia exactamente donde termina la barra de navegación */
+    left: 0; /* Se extiende desde el borde izquierdo */
+    width: 100%; /* Abarca todo el ancho de la pantalla del dispositivo */
+    background-color: #0d0d0d; /* Conserva el color de fondo oscuro corporativo */
+    flex-direction: column; /* Apila las opciones en lista vertical */
+    align-items: center; /* Centra horizontalmente los textos de cada opción */
+    padding: 1.5rem 0; /* Relleno vertical para separar las opciones */
+    gap: 1.5rem; /* Espaciado vertical entre enlaces */
+    max-height: 0; /* Colapsa la altura a cero cuando está cerrado */
+    overflow: hidden; /* Oculta los enlaces mientras el menú esté cerrado */
+    opacity: 0; /* Totalmente transparente cuando está inactivo */
+    transition: max-height 0.4s ease, opacity 0.3s ease; /* Animación fluida de despliegue */
   }
+
+  /* Estado activo cuando JavaScript añade la clase .active */
   .nav-menu.active {
-    max-height: 300px;
-    opacity: 1;
+    max-height: 350px; /* Expande la altura permitiendo mostrar todas las opciones */
+    opacity: 1; /* Vuelve el menú 100% visible */
   }
 }
 
-.section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f1f5f9;
+/* ==========================================================================
+   SECCIÓN SERVICIOS (Dante)
+   ========================================================================== */
+
+/* Contenedor general del bloque de servicios */
+#servicios {
+  background-color: #0d0d0d; /* Fondo negro elegante que resalta las tarjetas */
+  color: #ffffff; /* Texto general en color blanco */
+  padding: 80px 0; /* Generoso espacio vertical para dar presencia y respiro a la sección */
 }
-.section:nth-child(even) {
-  background-color: #e2e8f0;
+
+/* Título de la sección servicios */
+#h1-serv {
+  font-weight: 800; /* Negrita pronunciada */
+  letter-spacing: 2px; /* Separación de 2px entre letras para un acabado moderno */
+}
+
+/* Tarjeta individual de cada servicio ofrecido */
+.servicio {
+  padding: 30px 24px; /* Espaciado interno amplio */
+  background-color: #161616; /* Fondo gris grafito muy oscuro */
+  border-radius: 8px; /* Esquinas ligeramente redondeadas */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Suavizado para interactividad */
+}
+
+/* Ícono o emoji representativo del servicio */
+.servicio h2 {
+  font-size: 2.5rem; /* Tamaño amplio para destacar el símbolo */
+  margin-bottom: 20px; /* Margen inferior para separarlo del título */
+}
+
+/* Título del servicio específico */
+.servicio h3 {
+  font-size: 1.25rem; /* Tamaño jerárquico equilibrado */
+  font-weight: 700; /* Tipografía destacada */
+  margin-bottom: 15px; /* Margen inferior para separarlo del párrafo */
+  transition: color 0.3s ease; /* Suaviza el cambio de color al pasar el cursor */
+}
+
+/* Párrafo explicativo del servicio */
+.servicio p {
+  color: #a3a3a3; /* Tono de gris suave para facilitar la lectura continua */
+  line-height: 1.6; /* Altura de línea ampliada para legibilidad */
+  font-size: 0.95rem; /* Tamaño de fuente cómodo */
+  margin: 0; /* Sin margen inferior innecesario */
+}
+
+/* Efecto de elevación al pasar el ratón sobre la tarjeta */
+.servicio:hover {
+  background-color: rgb(25, 25, 25); /* Tono ligeramente más claro al interactuar */
+  transform: translateY(-5px); /* Eleva la tarjeta 5px simulando flotación */
+}
+
+/* Resalta el título en hover */
+.servicio:hover h3 {
+  color: rgb(205, 233, 59); /* Cambia al verde lima representativo */
+}
+
+/* ==========================================================================
+   SECCIÓN CONTACTO (Laura)
+   ========================================================================== */
+
+/* Tarjeta contenedora del formulario */
+.contacto-container {
+  max-width: 480px; /* Ancho máximo controlado para no estirar los campos */
+  margin: 0 auto; /* Centra la tarjeta horizontalmente */
+  background: #ffffff; /* Fondo blanco para contraste claro */
+  padding: 30px; /* Espaciado interno cómodo */
+  border-radius: 12px; /* Esquinas redondeadas */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08); /* Sombra difusa de elevación */
+}
+
+/* Título principal del formulario */
+.contacto-container h2 {
+  text-align: center; /* Texto centrado */
+  font-weight: 700; /* Negrita destacada */
+  margin-bottom: 25px; /* Separación con el primer campo */
+}
+
+/* Bloque contenedor de cada campo del formulario */
+.contacto-container div {
+  margin-bottom: 16px; /* Separación vertical entre campos */
+  text-align: left; /* Alineación izquierda para etiquetas e inputs */
+}
+
+/* Etiquetas descriptivas de cada entrada */
+.contacto-container label {
+  display: block; /* Ocupa una línea completa sobre el campo */
+  font-weight: 600; /* Seminegrita para destacar */
+  font-size: 0.9rem; /* Tamaño de letra proporcionado */
+  margin-bottom: 6px; /* Separación pequeña con la caja de entrada */
+}
+
+/* Cajas de texto y área de redacción de mensajes */
+.contacto-container input,
+.contacto-container textarea {
+  width: 100%; /* Ocupa el 100% del ancho del formulario */
+  padding: 10px 12px; /* Espaciado interior para escribir cómodamente */
+  border: 1px solid #ced4da; /* Borde gris estándar */
+  border-radius: 6px; /* Esquinas ligeramente curvadas */
+  font-size: 0.95rem; /* Tamaño de tipografía legible */
+  outline: none; /* Elimina contornos toscos por defecto */
+  transition: border-color 0.2s ease; /* Transición suave al enfocar */
+}
+
+/* Estado activo al hacer clic dentro de un campo */
+.contacto-container input:focus,
+.contacto-container textarea:focus {
+  border-color: #0d0d0d; /* Oscurece el borde señalando el campo activo */
+}
+
+/* Botón de envío específico del formulario de contacto */
+.contacto-container button[type="submit"] {
+  width: 100%; /* Abarca todo el ancho del formulario */
+  background-color: #212529; /* Negro grafito sobrio */
+  color: #ffffff; /* Texto en blanco para alto contraste */
+  border: none; /* Sin bordes */
+  padding: 12px; /* Área de pulsación amplia */
+  cursor: pointer; /* Cursor interactivo */
+  border-radius: 6px; /* Bordes redondeados consistentes */
+  font-weight: 700; /* Texto en negrita */
+  font-size: 1rem; /* Tamaño estándar de acción */
+  transition: background-color 0.2s ease; /* Transición suave de color */
+}
+
+/* Efecto hover del botón de contacto */
+.contacto-container button[type="submit"]:hover {
+  background-color: #dc3545; /* Cambia a rojo dinámico al pasar el cursor */
+}
+
+/* Contenedor de íconos sociales */
+.redes-sociales {
+  margin-top: 30px; /* Margen superior para separarlo del formulario */
+  text-align: center; /* Centra los íconos */
+}
+
+/* Texto introductorio a las redes */
+.redes-sociales p {
+  font-size: 1rem; /* Tamaño de letra estándar */
+  font-weight: 600; /* Tipografía destacada */
+  margin-bottom: 12px; /* Separación vertical con los enlaces */
+}
+
+/* Íconos vectoriales de redes */
+.redes-sociales i {
+  font-size: 28px; /* Tamaño amplio y visible */
+  margin: 0 12px; /* Separación horizontal entre íconos */
+  cursor: pointer; /* Cursor de mano */
+  transition: transform 0.2s ease; /* Suavizado para efecto de zoom */
+}
+
+/* Efecto zoom interactivo en los íconos de redes */
+.redes-sociales i:hover {
+  transform: scale(1.2); /* Agranda el ícono un 20% */
+}
+
+/* Colores oficiales de cada red social */
+.red-facebook { color: #1877f2; } /* Azul representativo de Facebook */
+.red-instagram { color: #e4405f; } /* Rosa de identidad de Instagram */
+.red-twitter { color: #000000; } /* Negro oficial de la plataforma X */
+.red-whatsapp { color: #25d366; } /* Verde característico de WhatsApp */
+
+/* ==========================================================================
+   PIE DE PÁGINA SEMÁNTICO (Footer)
+   ========================================================================== */
+
+/* Bloque institucional del pie de página */
+#contacto-section {
+  background-color: #0d0d0d; /* Fondo negro a juego con el navbar */
+  padding: 25px 20px; /* Relleno superior/inferior y lateral */
+  text-align: center; /* Centrado de derechos reservados */
+}
+
+/* Texto de créditos y derechos */
+.footer-creditos p {
+  margin: 0; /* Remueve márgenes sobrantes */
+  font-size: 0.9rem; /* Tipografía discreta */
+  color: #94a3b8; /* Gris claro de lectura agradable */
 }

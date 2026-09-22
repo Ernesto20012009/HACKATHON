@@ -392,9 +392,31 @@ let carrito = []; //arreglo de carrtio en 0
 
 
 // inicio funcion agregarAcarrito
-function agregarAcarrito(id){
-    const productoEncontrado = productos.find((item)=>item.id===id);
-    console.log(`Producto ${id} agregado al carrito`,productoEncontrado);
-}//fin agregarAcarrito
+function agregarAcarrito(id) {
+  try {
+    const productoEncontrado = productos.find((item) => item.id === id);
+    if (!productoEncontrado) {
+      throw new Error(`Producto con ID ${id} no encontrado.`);
+    }
 
-document.addEventListener("DOMContentLoaded",cargarProductos);
+    carrito.push(productoEncontrado);
+
+    const badgeContador = document.getElementById("cart-count");
+    if (badgeContador) {
+      badgeContador.textContent = carrito.length;
+    }
+
+    const toastElement = document.getElementById("cart-toast");
+    const toastMessage = document.getElementById("toast-message");
+
+    if (toastElement && window.bootstrap) {
+      toastMessage.textContent = `¡${productoEncontrado.nombre} agregado al carrito!`;
+      const toast = new bootstrap.Toast(toastElement, { delay: 2500 });
+      toast.show();
+    }
+  } catch (error) {
+    console.error("Error al procesar la compra:", error.message);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", cargarProductos);
