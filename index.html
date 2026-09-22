@@ -13,6 +13,7 @@
     <!--CSS-->
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/productos.css">
+    <link rel="stylesheet" href="./css/destacados.css">
 </head>
 
 <body>
@@ -49,10 +50,121 @@
 
     <!--main-->
     <main>
-        <section id="destacados" class="section">
-            <h1>Destacados</h1>
-        </section>
+        <!-- Destacados -->
+            <section id="destacados-section">
+    
+    <!-- HERO PRINCIPAL -->
+    <div class="hero-container position-relative overflow-hidden">
+      <!-- Imagen de fondo -->
+      <div class="hero-bg position-absolute top-0 start-0 w-100 h-100"
+           style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80'); background-size: cover; background-position: center;">
+      </div>
+      <!-- Overlay oscuro -->
+      <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.65;"></div>
+      
+      <!-- Contenido del Hero -->
+      <div class="container position-relative z-2 text-white text-center py-5 min-vh-85 d-flex flex-column align-items-center justify-content-center hero-content">
+        <span class="badge bg-danger px-4 py-2 mb-4 fs-7 text-uppercase letter-spacing-2">Nueva Temporada 2026</span>
+        <h1 class="display-3 fw-bolder text-uppercase mb-4 lh-1">Domina Tu Deporte</h1>
+        <p class="lead fs-5 mb-5 col-lg-8 col-md-10">
+          Equipamiento profesional para atletas que no se rinden. Calidad que se siente en cada movimiento.
+        </p>
+        <div class="d-flex flex-column flex-sm-row gap-3">
+          <button class="btn btn-danger btn-lg px-5 py-3 fw-bold text-uppercase">Ver Ofertas</button>
+          <button class="btn btn-outline-light btn-lg px-5 py-3 fw-bold text-uppercase">Catálogo Completo</button>
+        </div>
+      </div>
+      
+      <!-- Flecha de scroll -->
+      <div class="position-absolute bottom-4 start-50 translate-middle-x text-white z-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="animate-bounce">
+          <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+        </svg>
+      </div>
+    </div>
 
+    <!-- PRODUCTOS DESTACADOS -->
+    <div class="py-5 bg-white">
+      <div class="container py-4">
+        
+        <!-- Título de sección -->
+        <div class="text-center mb-5">
+          <span class="text-danger fw-semibold text-uppercase letter-spacing-2">Lo Más Vendido</span>
+          <h2 class="display-5 fw-bolder text-dark mt-2 mb-3">Productos Destacados</h2>
+          <p class="text-muted fs-5 col-lg-8 mx-auto">Los favoritos de nuestros atletas. Calidad premium al mejor precio.</p>
+        </div>
+
+        <!-- Tarjetas en grilla Bootstrap -->
+        <div class="row g-4 mb-5">
+          
+          <!-- Producto 1 Tenis Pro Runner X -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 border-0 shadow-sm product-card transition-hover">
+              <div class="position-relative overflow-hidden">
+                <img src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1440,c_limit/2ff661fa-bccd-4c78-a65b-4ced00edf929/sitio-web-oficial-de-nike.jpg" 
+                     class="card-img-top object-fit-cover w-100 product-img" style="height: 260px;" alt="Tenis Pro Runner X">
+                <span class="badge bg-danger position-absolute top-3 start-3">-20%</span>
+              </div>
+              <div class="card-body">
+                <span class="badge bg-danger-subtle text-danger small text-uppercase">Calzado</span>
+                <h5 class="card-title fw-bold text-dark mt-2 mb-1">Tenis Pro Runner X</h5>
+                <p class="card-text text-muted small mb-3">Máxima amortiguación para carreras de larga distancia.</p>
+                <div>
+                  <span class="fs-3 fw-bolder text-dark">$1,599</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 2 Balón Pro Match 5 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 border-0 shadow-sm product-card transition-hover">
+              <div class="position-relative overflow-hidden">
+                <img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6f4b7e4b-ee50-4700-a886-479919f231c6/NK+ACADEMY+-+FA26.png" 
+                     class="card-img-top object-fit-cover w-100 product-img" style="height: 260px;" alt="Balón Pro Match 5">
+                <span class="badge bg-success position-absolute top-3 start-3">Nuevo</span>
+              </div>
+              <div class="card-body">
+                <span class="badge bg-success-subtle text-success small text-uppercase">Fútbol</span>
+                <h5 class="card-title fw-bold text-dark mt-2 mb-1">Balón Pro Match 5</h5>
+                <p class="card-text text-muted small mb-3">Aprobado por FIFA. Durabilidad y control excepcionales.</p>
+                <div>
+                  <span class="fs-3 fw-bolder text-dark">$899</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 3 Conjunto Dry-Fit Elite -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="card h-100 border-0 shadow-sm product-card transition-hover">
+              <div class="position-relative overflow-hidden">
+                <img src="https://www.innovasport.com/medias/1200Wx1200H-NEW-media-gallery-000000000000396906-01-20260112115130.jpg?context=bWFzdGVyfGltYWdlc3w1NTM3MXxpbWFnZS9qcGVnfGFEUm1MMmcwWmk4eE5qUXhNalk1T1RJek1ESXpPQzh4TWpBd1YzZ3hNakF3U0Y5T1JWZGZiV1ZrYVdGZloyRnNiR1Z5ZVY4d01EQXdNREF3TURBd01EQXpPVFk1TURaZk1ERmZNakF5TmpBeE1USXhNVFV4TXpBdWFuQm58YmFiM2FlNTY0YmExNDMxMDBmNTUyOWY2NjE4OWFhZDFmOTA4MzljMDNmNDFiZWFhYjBhMDhlYmVlYzUwYTM2Mg" 
+                     class="card-img-top object-fit-cover w-100 product-img" style="height: 260px;" alt="Conjunto Dry-Fit Elite">
+                <span class="badge bg-primary position-absolute top-3 start-3">Top</span>
+              </div>
+              <div class="card-body">
+                <span class="badge bg-primary-subtle text-primary small text-uppercase">Ropa</span>
+                <h5 class="card-title fw-bold text-dark mt-2 mb-1">Conjunto Dry-Fit Elite</h5>
+                <p class="card-text text-muted small mb-3">Tela transpirable. Secado rápido. Máxima comodidad.</p>
+                <div>
+                  <span class="fs-3 fw-bolder text-dark">$1,299</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Botón ver todos -->
+        <div class="text-center">
+          <button class="btn btn-dark btn-lg px-5 py-3 fw-bold text-uppercase">Ver Todos los Productos</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+        <!-- Fin de Destacados -->
         <!--Productos-->
         <section id="productos">
             <h2 class="titulo-seccion text-center my-4"></h2>
@@ -130,6 +242,7 @@
     <!--JS-->
     <script src="./JS/productos.js"></script>
     <script src="./JS/main.js"></script>
+    <script src="./JS/destacados.js"></script>
 </body>
 
 </html>
