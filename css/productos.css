@@ -1,55 +1,111 @@
-/*Cuadricula para mostrar productos en columnas*/
-.products-grid {/* clase products-grid*/
-    display: flex; /*activar flexbox*/
-    flex-wrap: wrap;/*hace que las tarjetas bajen a la siguiente fila si ya no caben en pantalla*/
-    justify-content: center; /*centra las tarjetas horzontalmente dentro del contenedor*/
-    gap: 24px;/*Espacios entre cada tarjeta*/
-    padding: 20px;/*Margen interno para que las tarjetas no toquen los bordes*/
+/* ==========================================================================
+   SECCIÓN: CATÁLOGO DE PRODUCTOS (Neto)
+   Responsabilidad: Cuadrícula responsiva, tarjetas y botones de compra
+   ========================================================================== */
+
+/* Contenedor principal de la sección del catálogo */
+#productos {
+  padding: 4rem 1.5rem; /* Margen interior: 4rem arriba/abajo para separar de otras secciones y 1.5rem a los lados */
+  background-color: #f8f9fa; /* Fondo gris claro neutral que resalta el blanco de las tarjetas */
 }
 
-/*Clase card-product*/ /*Tarjeta individual de cada producto*/
-.card-product{
-    border: 1px solid black;/*agrega un borde a cada imagen*/
-    border-radius: 15px;/*Redondea las esquinas de nuestros bordes de las tarjetas*/
-    padding: 16px;/*Espacio entre el borde y contendio de la imagen*/
-    width: 280px; /*Mismo ancho de 280 pixeles para que todas las tarjetas sean identicas */
-    text-align: center;/*centra ek texto, imagenes y botones dentro de la tarjeta*/
-    box-shadow:  0 4px 10px red;/*aplica una sombra suave difuminadad en el borde de la tarjeta*/
-    background-color: whitesmoke; /*fondo blanco de la tarjeta*/
-}
-/*Estilo para las imagenes*/
-.card-product img{ /*Establecer reglas para la imagen dentro de la tarjeta*/
-    width: 100%; /*Ocupa el 100% del ancho interno disponible de la tarjeta*/
-    height: 220px;/*limita la altura para que la imagen no se vea mas grande*/
-    object-fit: contain;/*escala la foto de los 220 px conservando su proporcion sin recortar ni deformar la imagen*/
-    margin-bottom: 12px;/*Margen de separacion de 12 px debajo de la foto, antes del texto*/
-}
-/*Titulos de tarjeta*/
-.card-product h3{
-    font-size: 1.2rem;/*tamanio de la letra del titulo*/
-    margin: 8px 0; /*separa el titulo arriba y abajo, dejando 0px a los costados*/
+/* Título principal de la sección ("NUESTROS PRODUCTOS") */
+.titulo-seccion {
+  font-size: 2.2rem; /* Tamaño de fuente grande y visible */
+  font-weight: 800; /* Grosor de tipografía extra negrita para jerarquía visual */
+  text-transform: uppercase; /* Convierte todo el texto automáticamente a mayúsculas */
+  letter-spacing: 1.5px; /* Espaciado de 1.5px entre caracteres para estilo moderno */
+  color: #111827; /* Gris muy oscuro casi negro de alto contraste */
 }
 
-
-.card-product .precio {/* Etiqueta del precio */
-  font-weight: bold;/* Pone el texto en negrita para destacarlo a primera vista */
-  color: #2e7d32;/* Aplica un color verde para identificarlo visualmente con dinero/precio */
-  font-size: 1.1rem;/* Ajusta el tamaño de letra ligeramente más grande que el texto común */
+/* Contenedor de la cuadrícula de productos */
+.products-grid {
+  display: grid; /* Activa el modelo CSS Grid bidimensional */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Crea columnas responsivas automáticas: mínimo 260px y máximo 1 fracción equitativa */
+  gap: 1.75rem; /* Separación horizontal y vertical constante de 1.75rem entre tarjetas */
+  max-width: 1320px; /* Ancho máximo estándar para no estirar demasiado las tarjetas en pantallas ultra anchas */
+  margin: 0 auto; /* Centra horizontalmente toda la cuadrícula en la pantalla */
+  padding: 1.5rem 0; /* Relleno superior e inferior de 1.5rem */
 }
 
-/* Botón de compra */
+/* Estilos de la tarjeta individual de cada producto */
+.card-product {
+  background-color: #ffffff; /* Fondo blanco sólido */
+  border-radius: 12px; /* Esquinas redondeadas de 12px */
+  padding: 1.25rem; /* Espaciado interno entre el borde y el contenido del producto */
+  display: flex; /* Activa Flexbox unidimensional dentro de la tarjeta */
+  flex-direction: column; /* Alinea los elementos en columna vertical (foto, título, precio, botón) */
+  justify-content: space-between; /* Distribuye el espacio empujando el botón siempre al fondo */
+  align-items: center; /* Centra horizontalmente los elementos hijos */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra sutil de elevación */
+  border: 1px solid #e9ecef; /* Borde gris muy claro para delimitar la tarjeta */
+  transition: transform 0.25s ease, box-shadow 0.25s ease; /* Transición suave de 0.25s para movimiento y sombra al interactuar */
+  overflow: hidden; /* Oculta cualquier elemento secundario que sobrepase los bordes redondeados */
+}
+
+/* Efecto al pasar el cursor (hover) sobre la tarjeta */
+.card-product:hover {
+  transform: translateY(-6px); /* Eleva la tarjeta 6 píxeles hacia arriba */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Intensifica la sombra inferior simulando profundidad */
+}
+
+/* Imagen del producto */
+.card-product img {
+  width: 100%; /* Ocupa todo el ancho disponible de la tarjeta */
+  height: 200px; /* Altura fija uniforme para que todas las tarjetas midan lo mismo */
+  object-fit: cover; /* Recorta la imagen proporcionalmente sin deformarla ni estirarla */
+  border-radius: 8px; /* Redondea las esquinas de la imagen */
+  margin-bottom: 1rem; /* Margen inferior de 1rem que separa la imagen del título */
+  background-color: #f1f3f5; /* Fondo de carga provisional en caso de imágenes transparentes */
+}
+
+/* Nombre o título del producto */
+.card-product h3 {
+  font-size: 1.05rem; /* Tamaño de texto equilibrado y legible */
+  font-weight: 600; /* Seminegrita para destacar sobre la descripción */
+  color: #1f2937; /* Tono de gris oscuro */
+  text-align: center; /* Centra el texto del título */
+  margin: 0.5rem 0; /* Margen vertical pequeño */
+  min-height: 2.6rem; /* Reserva altura mínima equivalente a 2 líneas para alinear todas las tarjetas */
+  display: -webkit-box; /* Activa el modelo de caja flexible para recorte de texto */
+  -webkit-line-clamp: 2; /* Limita el texto a un máximo exacto de 2 renglones */
+  -webkit-box-orient: vertical; /* Orienta el recorte de líneas en vertical */
+  line-clamp: 2;
+  overflow: hidden; /* Oculta con puntos suspensivos el texto que exceda los dos renglones */
+}
+
+/* Etiqueta de precio */
+.card-product .precio {
+  font-size: 1.25rem; /* Tamaño destacado */
+  font-weight: 700; /* Tipografía en negrita */
+  color: #dc3545; /* Rojo de acento deportivo */
+  margin: 0.5rem 0 1rem 0; /* Separación vertical con margen inferior más amplio antes del botón */
+}
+
+/* Botón interactivo "Agregar al Carrito" */
 .btn-agregar {
-  background-color: #111;/* Fondo negro / gris muy oscuro */
-  color: #fff;/* Texto en color blanco para lograr contraste */
-  border: none;/* Quita el borde tosco predeterminado que traen los navegadores */
-  padding: 10px 16px;/* Relleno interno: 10px arriba/abajo y 16px a la izquierda/derecha */
-  border-radius: 6px;/* Redondea ligeramente las esquinas del botón */
-  cursor: pointer;/* Transforma el cursor en una mano interactiva al pasar por encima */
-  width: 100%;/* Hace que el botón abarque todo el ancho disponible de la tarjeta */
-  transition: background-color 0.2s;/* Anima el cambio de color durante 0.2 segundos de manera fluida */
+  width: 100%; /* Abarca el 100% del ancho interior de la tarjeta */
+  background-color: #212529; /* Negro grafito profesional */
+  color: #ffffff; /* Texto e ícono en color blanco */
+  border: none; /* Elimina el borde nativo del navegador */
+  padding: 0.75rem 1rem; /* Altura y anchura interior cómoda para clic/toque táctil */
+  border-radius: 6px; /* Curvatura ligera en las esquinas */
+  font-weight: 600; /* Texto seminegrita */
+  font-size: 0.9rem; /* Tamaño proporcional al contenido */
+  cursor: pointer; /* Cambia el cursor a mano para señalar que es interactivo */
+  display: flex; /* Alinea el ícono de FontAwesome y el texto en línea */
+  align-items: center; /* Centra verticalmente ícono y texto */
+  justify-content: center; /* Centra horizontalmente ícono y texto dentro del botón */
+  gap: 0.5rem; /* Separación de 0.5rem entre el carrito y la palabra "Agregar" */
+  transition: background-color 0.2s ease; /* Transición suave de 0.2 segundos al cambiar de color */
 }
 
-/* Estado del botón al pasar el cursor por encima (hover) */
+/* Efecto hover del botón */
 .btn-agregar:hover {
-  background-color: #203a81;/* Cambia a un gris un poco más claro como respuesta visual al usuario */
+  background-color: #dc3545; /* Cambia a rojo dinámico al pasar el cursor o hacer foco */
+}
+/* Feedback táctil al presionar en celular */
+.btn-agregar:active {
+  transform: scale(0.97);
+  background-color: #bb2d3b;
 }
