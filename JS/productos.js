@@ -368,8 +368,9 @@ const productos = [
     categoria: "Accesorios"
   }
 ];
-
-// funcion Cargar Productos inicio
+const imagenRespaldo="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=500&auto=format&fit=crop&q=60"; //si el enlace de imagen falla
+let carrito = []; //arreglo de carrtio en 0
+// funcion Cargar Productos inicio de catalogo
  function cargarProductos(){
     const contenedor = document.getElementById("container-products");
     if (!contenedor) return;
