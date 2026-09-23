@@ -1,0 +1,86 @@
+/* ==========================================================================
+   SECCIÓN DESTACADOS - Mario
+   Responsabilidad: Banner principal (Hero), animaciones y tarjetas destacadas
+   ========================================================================== */
+
+/* Contenedor principal de la portada (Hero) */
+.hero-container {
+  min-height: 85vh; /* Ocupa al menos el 85% de la altura visible de la pantalla */
+  padding-top: 80px; /* Compensación superior para que el Navbar fijo no tape el contenido */
+}
+
+/* Capa de imagen de fondo del Hero */
+.hero-bg {
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita en mosaico */
+}
+
+/* Estado inicial del texto y botones del Hero (animación de entrada con JS) */
+.hero-content {
+  opacity: 0; /* Invisible al cargar la página */
+  transform: translateY(30px); /* Desplazado 30 píxeles hacia abajo */
+  transition: opacity 1s ease, transform 1s ease; /* Transición suave de 1 segundo al activarse */
+  padding-top: 80px; /* Margen interior limpio sin necesidad de !important */
+}
+
+/* Estado activo: se activa cuando JS le añade la clase .visible */
+.hero-content.visible {
+  opacity: 1; /* Se vuelve 100% visible */
+  transform: translateY(0); /* Regresa a su posición vertical original (efecto fade-in) */
+}
+
+/* Utilidad tipográfica para espaciado de letras */
+.letter-spacing-2 {
+  letter-spacing: 2px; /* Añade 2 píxeles de separación entre cada letra */
+}
+
+/* Utilidad tipográfica para texto muy pequeño */
+.fs-7 {
+  font-size: 0.8rem; /* Tamaño de fuente reducido proporcional */
+}
+
+/* Estilos base de las tarjetas de productos destacados */
+.product-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Suaviza la interacción de hover */
+}
+
+/* Efecto al pasar el cursor (hover) sobre la tarjeta destacada */
+.product-card:hover {
+  transform: translateY(-10px); /* Eleva la tarjeta 10 píxeles simulando flotación */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); /* Sombra difusa de elevación sin !important */
+}
+
+/* Imagen interior del producto */
+.product-img {
+  transition: transform 0.6s ease; /* Transición de zoom suave de 0.6 segundos */
+}
+
+/* Efecto de zoom en la imagen cuando se hace hover sobre la tarjeta padre */
+.product-card:hover .product-img {
+  transform: scale(1.08); /* Agranda la imagen un 8% dentro de su contenedor */
+}
+
+/* Definición de la animación de rebote (bounce) para la flecha indicadora */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { 
+    transform: translateY(0); /* Posición normal en reposo */
+  }
+  40% { 
+    transform: translateY(-12px); /* Punto máximo de elevación */
+  }
+  60% { 
+    transform: translateY(-5px); /* Rebote secundario intermedio */
+  }
+}
+
+/* Clase que ejecuta la animación de rebote */
+.animate-bounce {
+  animation: bounce 2s infinite; /* Repite la animación bounce continuamente cada 2 segundos */
+}
+
+/* Ajustes estructurales sincronizados con el ID de index.html */
+#destacados {
+  min-height: 100vh; /* Asegura cobertura mínima de pantalla completa */
+  padding-top: 0; /* Anula rellenos residuales */
+  margin-top: 0; /* Anula márgenes residuales */
+  display: block; /* Comportamiento estándar de bloque */
+}

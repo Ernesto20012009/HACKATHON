@@ -1,0 +1,460 @@
+<!-- Define que el documento se rige bajo el estándar moderno HTML5 -->
+<!DOCTYPE html>
+<!-- Etiqueta raíz del documento configurada con el idioma español para accesibilidad y SEO -->
+<html lang="es">
+
+<!-- Cabecera técnica del documento: contiene metadatos y hojas de estilo externas -->
+<head>
+    <!-- Codificación universal de caracteres para interpretar correctamente tildes y caracteres especiales -->
+    <meta charset="UTF-8">
+    <!-- Configuración del viewport para garantizar una visualización responsiva en dispositivos móviles y tabletas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Nombre comercial del proyecto que aparece en la pestaña del navegador -->
+    <title>DALEM SPORTS</title>
+
+    <!-- Framework Bootstrap 5.3.8: Provee sistema de grillas, componentes interactivos y utilidades -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Biblioteca FontAwesome 6.5.2: Soporta íconos vectoriales modernos (incluyendo fa-x-twitter) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Hoja de estilos compartida: Reseteo, encabezado, barra fija, servicios y pie de página -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <!-- Hoja de estilos del banner promocional y productos destacados (Mario) -->
+    <link rel="stylesheet" href="./css/destacados.css">
+    <!-- Hoja de estilos del catálogo dinámico de 50 productos y cuadrícula responsiva (Neto) -->
+    <link rel="stylesheet" href="./css/productos.css">
+<!-- Cierre de la cabecera técnica -->
+</head>
+
+<!-- Cuerpo del documento: Contiene todos los elementos visuales interactivos accesibles para el usuario -->
+<body>
+
+    <!-- ================= HEADER & BARRA DE NAVEGACIÓN (Alberto) ================= -->
+    <!-- Contenedor del encabezado superior fijado permanentemente en la pantalla -->
+    <header class="header" id="header">
+        <!-- Barra de navegación con alineación distribuida mediante Flexbox -->
+        <nav class="navbar">
+            <!-- Logotipo e isotipo de DALEM SPORTS con enlace directo a la portada -->
+            <a href="#" class="logo">
+                <!-- Ícono decorativo de balón deportivo -->
+                <i class="fa-solid fa-futbol"></i> DALEM SPORTS
+            </a>
+
+            <!-- Menú de navegación principal: se oculta en móviles y se despliega con el menú hamburguesa -->
+            <ul class="nav-menu" id="nav-menu">
+                <!-- Enlace de anclaje directo a la sección de productos destacados -->
+                <li class="nav-item">
+                    <a href="#destacados" class="nav-link">Destacados</a>
+                </li>
+                <!-- Enlace de anclaje directo al catálogo de 50 productos (sin IDs duplicados) -->
+                <li class="nav-item">
+                    <a href="#productos" class="nav-link">Productos</a>
+                </li>
+                <!-- Enlace de anclaje a los servicios y garantías comerciales -->
+                <li class="nav-item">
+                    <a href="#servicios" class="nav-link">Servicios</a>
+                </li>
+                <!-- Enlace de anclaje al formulario de contacto institucional -->
+                <li class="nav-item">
+                    <a href="#contactanos" class="nav-link">Contáctanos</a>
+                </li>
+            <!-- Cierre de la lista de navegación -->
+            </ul>
+
+            <!-- Contenedor de acciones siempre visibles en la esquina superior derecha (Móvil y Escritorio) -->
+            <div class="d-flex align-items-center gap-3">
+                <!-- Botón interactivo que despliega el panel lateral (Offcanvas) con la orden de compra -->
+                <button type="button" class="btn-cart-nav position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-label="Ver carrito de compras">
+                    <!-- Ícono de carrito de compras en color blanco -->
+                    <i class="fa-solid fa-cart-shopping fs-5 text-white"></i>
+                    <!-- ÚNICO identificador cart-count del documento para evitar conflictos con JavaScript -->
+                    <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill">0</span>
+                <!-- Cierre del botón del carrito -->
+                </button>
+
+                <!-- Botón hamburguesa visible exclusivamente en resoluciones móviles y tablets -->
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación">
+                    <!-- Ícono de tres barras horizontales que se alterna mediante JavaScript -->
+                    <i class="fa-solid fa-bars" id="toggle-icon"></i>
+                <!-- Cierre del botón hamburguesa -->
+                </button>
+            <!-- Cierre del contenedor de acciones -->
+            </div>
+        <!-- Cierre de la barra de navegación -->
+        </nav>
+    <!-- Cierre del encabezado -->
+    </header>
+
+    <!-- ================= CONTENIDO PRINCIPAL DEL SITIO ================= -->
+    <!-- Etiqueta semántica que engloba el contenido esencial e interactivo de la página -->
+    <main>
+
+        <!-- ================= SECCIÓN DESTACADOS / HERO (Mario) ================= -->
+        <!-- Sección de impacto visual con el identificador sincronizado con el enlace del Navbar -->
+        <section id="destacados-section">
+            <!-- Portada principal a pantalla completa con posicionamiento relativo -->
+            <div class="hero-container position-relative overflow-hidden">
+                <!-- Capa con imagen de fondo deportiva optimizada en Unsplash -->
+                <div class="hero-bg position-absolute top-0 start-0 w-100 h-100"
+                    style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80'); background-size: cover; background-position: center;">
+                <!-- Cierre de la capa de fondo -->
+                </div>
+                <!-- Filtro oscuro translúcido para garantizar el contraste de lectura sobre la fotografía -->
+                <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.65;"></div>
+
+                <!-- Bloque de contenido centralizado sobre el banner -->
+                <div class="container position-relative z-2 text-white text-center py-5 min-vh-85 d-flex flex-column align-items-center justify-content-center hero-content">
+                    <!-- Etiqueta distintiva de temporada -->
+                    <span class="badge bg-danger px-4 py-2 mb-4 fs-7 text-uppercase letter-spacing-2">Nueva Temporada 2026</span>
+                    <!-- Encabezado de nivel 1 principal del sitio web -->
+                    <h1 class="display-3 fw-bolder text-uppercase mb-4 lh-1">Domina Tu Deporte</h1>
+                    <!-- Texto de soporte y propuesta de valor comercial -->
+                    <p class="lead fs-5 mb-5 col-lg-8 col-md-10">
+                        Equipamiento profesional para atletas que no se rinden. Calidad que se siente en cada movimiento.
+                    </p>
+                    <!-- Contenedor con botones de llamada a la acción -->
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <!-- Enlace con aspecto de botón primario que desplaza la vista a los productos -->
+                        <a href="#productos" class="btn btn-danger btn-lg px-5 py-3 fw-bold text-uppercase text-decoration-none">Ver Ofertas</a>
+                        <!-- Enlace con aspecto de botón delineado secundario -->
+                        <a href="#productos" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold text-uppercase text-decoration-none">Catálogo Completo</a>
+                    <!-- Cierre del contenedor de botones -->
+                    </div>
+                <!-- Cierre del bloque de texto -->
+                </div>
+
+                <!-- Indicador visual de desplazamiento vertical ubicado en el fondo del hero -->
+                <div class="position-absolute bottom-4 start-50 translate-middle-x text-white z-2">
+                    <!-- Flecha SVG vectorizada con animación fluida de rebote CSS -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" class="animate-bounce">
+                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                <!-- Cierre del indicador de scroll -->
+                </div>
+            <!-- Cierre del contenedor del hero -->
+            </div>
+
+            <!-- Contenedor de la cuadrícula de artículos destacados sobre fondo blanco -->
+            <div class="py-5 bg-white">
+                <!-- Contenedor adaptable estándar de Bootstrap -->
+                <div class="container py-4">
+                    <!-- Encabezado de la subsección con títulos centrados -->
+                    <div class="text-center mb-5">
+                        <!-- Insignia textual roja de categoría comercial -->
+                        <span class="text-danger fw-semibold text-uppercase letter-spacing-2">Lo Más Vendido</span>
+                        <!-- Título de nivel 2 para la jerarquía de productos relevantes -->
+                        <h2 class="display-5 fw-bolder text-dark mt-2 mb-3">Productos Destacados</h2>
+                        <!-- Párrafo descriptivo -->
+                        <p class="text-muted fs-5 col-lg-8 mx-auto">Los favoritos de nuestros atletas. Calidad premium al mejor precio.</p>
+                    <!-- Cierre del encabezado de la sección -->
+                    </div>
+
+                    <!-- Fila responsiva con espacio uniforme entre columnas -->
+                    <div class="row g-4 mb-5">
+                        <!-- Columna para el primer producto destacado: ancho completo en móvil y tercio en pantallas medianas -->
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- Tarjeta con borde plano, sombra sutil y altura flexible de 100% -->
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <!-- Envoltura de imagen con recorte overflow -->
+                                <div class="position-relative overflow-hidden">
+                                    <!-- Fotografía con altura uniforme de 260px y ajuste de objeto sin deformación -->
+                                    <img src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1440,c_limit/2ff661fa-bccd-4c78-a65b-4ced00edf929/sitio-web-oficial-de-nike.jpg"
+                                        class="card-img-top object-fit-cover w-100 product-img" style="height: 260px;" alt="Tenis Pro Runner X">
+                                    <!-- Insignia de descuento flotante -->
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3">-20%</span>
+                                <!-- Cierre del contenedor de imagen -->
+                                </div>
+                                <!-- Cuerpo informativo de la tarjeta -->
+                                <div class="card-body">
+                                    <!-- Categoría deportiva -->
+                                    <span class="badge bg-danger-subtle text-danger small text-uppercase">Calzado</span>
+                                    <!-- Nombre del artículo -->
+                                    <h5 class="card-title fw-bold text-dark mt-2 mb-1">Tenis Pro Runner X</h5>
+                                    <!-- Breve descripción técnica del calzado -->
+                                    <p class="card-text text-muted small mb-3">Máxima amortiguación para carreras de larga distancia.</p>
+                                    <!-- Precio formateado con moneda local -->
+                                    <div><span class="fs-4 fw-bolder text-dark">$1,599 MXN</span></div>
+                                <!-- Cierre del cuerpo de la tarjeta -->
+                                </div>
+                            <!-- Cierre de la primera tarjeta -->
+                            </div>
+                        <!-- Cierre de la primera columna -->
+                        </div>
+
+                        <!-- Columna para el segundo producto destacado -->
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- Tarjeta estructurada -->
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <!-- Envoltura de imagen -->
+                                <div class="position-relative overflow-hidden">
+                                    <!-- Fotografía del balón de fútbol -->
+                                    <img src="https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6f4b7e4b-ee50-4700-a886-479919f231c6/NK+ACADEMY+-+FA26.png"
+                                        class="card-img-top object-fit-cover w-100 product-img" style="height: 260px;" alt="Balón Pro Match 5">
+                                    <!-- Insignia de novedad verde -->
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3">Nuevo</span>
+                                <!-- Cierre del contenedor de imagen -->
+                                </div>
+                                <!-- Cuerpo de la tarjeta -->
+                                <div class="card-body">
+                                    <!-- Categoría -->
+                                    <span class="badge bg-success-subtle text-success small text-uppercase">Fútbol</span>
+                                    <!-- Título -->
+                                    <h5 class="card-title fw-bold text-dark mt-2 mb-1">Balón Pro Match 5</h5>
+                                    <!-- Descripción -->
+                                    <p class="card-text text-muted small mb-3">Aprobado por FIFA. Durabilidad y control excepcionales.</p>
+                                    <!-- Precio -->
+                                    <div><span class="fs-4 fw-bolder text-dark">$899 MXN</span></div>
+                                <!-- Cierre del cuerpo -->
+                                </div>
+                            <!-- Cierre de la segunda tarjeta -->
+                            </div>
+                        <!-- Cierre de la segunda columna -->
+                        </div>
+
+                        <!-- Columna para el tercer producto destacado -->
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <!-- Tarjeta estructurada -->
+                            <div class="card h-100 border-0 shadow-sm product-card">
+                                <!-- Envoltura de imagen -->
+                                <div class="position-relative overflow-hidden">
+                                    <!-- Fotografía de la vestimenta deportiva -->
+                                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80"
+                                        class="card-img-top object-fit-cover w-100 product-img" style="height: 260px;" alt="Conjunto Dry-Fit Elite">
+                                    <!-- Insignia azul de producto estelar -->
+                                    <span class="badge bg-primary position-absolute top-0 start-0 m-3">Top</span>
+                                <!-- Cierre del contenedor de imagen -->
+                                </div>
+                                <!-- Cuerpo de la tarjeta -->
+                                <div class="card-body">
+                                    <!-- Categoría textil -->
+                                    <span class="badge bg-primary-subtle text-primary small text-uppercase">Ropa</span>
+                                    <!-- Título -->
+                                    <h5 class="card-title fw-bold text-dark mt-2 mb-1">Conjunto Dry-Fit Elite</h5>
+                                    <!-- Descripción -->
+                                    <p class="card-text text-muted small mb-3">Tela transpirable. Secado rápido y confort superior.</p>
+                                    <!-- Precio -->
+                                    <div><span class="fs-4 fw-bolder text-dark">$1,299 MXN</span></div>
+                                <!-- Cierre del cuerpo -->
+                                </div>
+                            <!-- Cierre de la tercera tarjeta -->
+                            </div>
+                        <!-- Cierre de la tercera columna -->
+                        </div>
+                    <!-- Cierre de la fila de tarjetas -->
+                    </div>
+
+                    <!-- Botón centrado que conduce al catálogo completo -->
+                    <div class="text-center">
+                        <a href="#productos" class="btn btn-dark btn-lg px-5 py-3 fw-bold text-uppercase text-decoration-none">Ver Todos los Productos</a>
+                    <!-- Cierre del contenedor del botón -->
+                    </div>
+                <!-- Cierre del contenedor de la grilla -->
+                </div>
+            <!-- Cierre de la envoltura blanca -->
+            </div>
+        <!-- Cierre de la sección de destacados -->
+        </section>
+
+        <!-- ================= SECCIÓN CATÁLOGO DE PRODUCTOS (Neto) ================= -->
+        <!-- Sección que renderiza los 50 artículos de la tienda virtual de forma programática -->
+        <section id="productos">
+            <!-- Título de sección semántico y estilizado -->
+            <h2 class="titulo-seccion text-center my-4">Nuestros Productos</h2>
+            <!-- Contenedor vacío donde productos.js inyecta el catálogo con tarjetas responsivas -->
+            <div id="container-products" class="products-grid"></div>
+        <!-- Cierre de la sección del catálogo -->
+        </section>
+
+        <!-- ================= SECCIÓN SERVICIOS (Dante) ================= -->
+        <!-- Sección informativa sobre las ventajas de compra y garantías corporativas -->
+        <section id="servicios">
+            <!-- Contenedor estándar de ancho controlado -->
+            <div class="container">
+                <!-- Encabezado de la sección de servicios en tono blanco contrastante -->
+                <h2 id="h1-serv" class="text-center mb-5">SERVICIOS</h2>
+                <!-- Fila de grilla que divide 1 columna en móvil, 2 en tablets y 4 en pantallas amplias -->
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Servicio 1: Asesoría especializada -->
+                    <div class="col">
+                        <div class="servicio h-100">
+                            <h2>⚡</h2>
+                            <h3>ASESORÍA PERSONALIZADA</h3>
+                            <p>Expertos certificados te ayudan a elegir el equipamiento ideal para tu nivel y objetivos.</p>
+                        </div>
+                    </div>
+                    <!-- Servicio 2: Logística rápida de entrega -->
+                    <div class="col">
+                        <div class="servicio h-100">
+                            <h2>🚚</h2>
+                            <h3>ENVÍO EXPRESS 24H</h3>
+                            <p>Despacho a todo México. Compras sobre $999 con envío gratis garantizado el mismo día.</p>
+                        </div>
+                    </div>
+                    <!-- Servicio 3: Garantía de satisfacción -->
+                    <div class="col">
+                        <div class="servicio h-100">
+                            <h2>🔄</h2>
+                            <h3>CAMBIOS SIN COSTO</h3>
+                            <p>30 días para devolver o cambiar tu producto sin preguntas. Tu satisfacción es prioridad.</p>
+                        </div>
+                    </div>
+                    <!-- Servicio 4: Alianzas y licencias oficiales -->
+                    <div class="col">
+                        <div class="servicio h-100">
+                            <h2>🏆</h2>
+                            <h3>MARCAS OFICIALES</h3>
+                            <p>Distribuidores autorizados de Nike, Adidas, Under Armour, Puma y las mejores marcas.</p>
+                        </div>
+                    </div>
+                <!-- Cierre de la grilla de servicios -->
+                </div>
+            <!-- Cierre del contenedor -->
+            </div>
+        <!-- Cierre de la sección de servicios -->
+        </section>
+
+        <!-- ================= SECCIÓN FORMULARIO DE CONTACTO (Laura) ================= -->
+        <!-- Sección de retroalimentación y contacto sobre fondo gris claro neutro -->
+        <section id="contactanos" class="py-5 bg-light">
+            <!-- Contenedor centralizado -->
+            <div class="container">
+                <!-- Tarjeta contenedora con sombra suave que delimita los campos de captura -->
+                <div class="contacto-container">
+                    <!-- Título del formulario -->
+                    <h2>Contáctanos</h2>
+                    <!-- Formulario de validación de datos -->
+                    <form id="formulario-contacto">
+                        <!-- Campo para capturar el nombre -->
+                        <div>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        <!-- Campo para capturar el correo electrónico con validación de formato nativa -->
+                        <div>
+                            <label for="correo">Correo Electrónico:</label>
+                            <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+                        </div>
+                        <!-- Campo para redactar el mensaje o duda -->
+                        <div>
+                            <label for="mensaje">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                        </div>
+                        <!-- Botón para procesar el envío de información -->
+                        <button type="submit">Enviar Mensaje</button>
+                        <!-- Párrafo para mostrar mensajes dinámicos de error en caso de fallo de validación -->
+                        <p id="mensaje-error" style="color: red; margin-top: 10px;"></p>
+                    <!-- Cierre del formulario -->
+                    </form>
+
+                    <!-- Bloque con íconos de interacción de plataformas sociales -->
+                    <div class="redes-sociales">
+                        <p>Síguenos en nuestras redes:</p>
+                        <!-- Enlace con ícono corporativo de Facebook -->
+                        <i class="fa-brands fa-facebook red-facebook"></i>
+                        <!-- Enlace con ícono de Instagram -->
+                        <i class="fa-brands fa-instagram red-instagram"></i>
+                        <!-- Enlace con el ícono actualizado oficial de la plataforma X (Twitter) -->
+                        <i class="fa-brands fa-x-twitter red-twitter"></i>
+                        <!-- Enlace con ícono de mensajería instantánea WhatsApp -->
+                        <i class="fa-brands fa-whatsapp red-whatsapp"></i>
+                    <!-- Cierre de redes sociales -->
+                    </div>
+                <!-- Cierre de la tarjeta de contacto -->
+                </div>
+            <!-- Cierre del contenedor -->
+            </div>
+        <!-- Cierre de la sección de contacto -->
+        </section>
+
+    <!-- Cierre del contenedor principal -->
+    </main>
+
+    <!-- ================= PIE DE PÁGINA SEMÁNTICO (Footer) ================= -->
+    <!-- Contenedor semántico exterior para el cierre institucional de la página web -->
+    <footer id="contacto-section">
+        <!-- Bloque de créditos legales -->
+        <div class="footer-creditos">
+            <!-- Párrafo con texto de reserva de derechos de autor y año en curso -->
+            <p>&copy; 2026 DALEM SPORTS. Todos los derechos reservados.</p>
+        <!-- Cierre del bloque de créditos -->
+        </div>
+    <!-- Cierre del pie de página -->
+    </footer>
+
+    <!-- ================= PANEL LATERAL DEL CARRITO (Offcanvas de Bootstrap) ================= -->
+    <!-- Menú lateral deslizable accesible desde cualquier vista o pantalla -->
+    <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasCart" aria-labelledby="offcanvasCartLabel">
+        <!-- Encabezado del panel lateral oscuro -->
+        <div class="offcanvas-header bg-dark text-white">
+            <h5 class="offcanvas-title" id="offcanvasCartLabel">
+                <i class="fa-solid fa-cart-shopping me-2"></i> Tu Carrito de Compras
+            </h5>
+            <!-- Botón de cruz blanca para cerrar el panel lateral -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <!-- Cuerpo interior del panel ordenado con Flexbox -->
+        <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
+            <!-- Contenedor dinámico donde se agregan los artículos o se muestra el aviso de carrito vacío -->
+            <div id="cart-items" class="overflow-auto flex-grow-1 mb-3" style="max-height: 60vh;">
+                <p class="text-muted text-center py-4">Tu carrito está vacío.</p>
+            </div>
+
+            <!-- Resumen numérico del total acumulado y botones de confirmación -->
+            <div class="border-top pt-3 bg-white p-2 rounded shadow-sm">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fs-5 fw-bold">Total a pagar:</span>
+                    <!-- Identificador dinámico del monto monetario actualizado en tiempo real -->
+                    <span id="cart-total" class="fs-4 fw-bolder text-danger">$0 MXN</span>
+                </div>
+                <!-- Acciones finales de compra -->
+                <div class="d-grid gap-2">
+                    <!-- Botón para limpiar todos los artículos agregados -->
+                    <button class="btn btn-outline-danger btn-sm" type="button" onclick="vaciarCarrito()">
+                        <i class="fa-solid fa-trash me-1"></i> Vaciar Carrito
+                    </button>
+                    <!-- Botón que simula la culminación de la orden -->
+                    <button class="btn btn-dark fw-bold text-uppercase py-2" type="button" onclick="alert('¡Pedido simulado con éxito!')">
+                        Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    <!-- Cierre del panel lateral Offcanvas -->
+    </div>
+
+    <!-- ================= COMPONENTES FLOTANTES (Feedback Carrito) ================= -->
+    <!-- Contenedor fijo en la esquina inferior derecha para no obstaculizar la navegación -->
+    <div id="toast-container" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+        <!-- Alerta Toast de Bootstrap en color verde de éxito -->
+        <div id="cart-toast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <!-- Mensaje emergente configurable por JavaScript -->
+                <div class="toast-body" id="toast-message">
+                    Producto agregado al carrito.
+                </div>
+                <!-- Botón para desestimar la alerta manualmente -->
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+        </div>
+    <!-- Cierre del contenedor de toasts -->
+    </div>
+
+    <!-- ================= IMPORTACIÓN DE SCRIPTS ================= -->
+    <!-- Bundle de JavaScript de Bootstrap para habilitar ventanas emergentes, toasts y offcanvas -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- Catálogo de productos y motor del carrito de compras (Neto) -->
+    <script src="./JS/productos.js"></script>
+    <!-- Animaciones y transiciones visuales de la sección destacados (Mario) -->
+    <script src="./JS/destacados.js"></script>
+    <!-- Control del menú hamburguesa y utilidades generales (Alberto) -->
+    <script src="./JS/main.js"></script>
+<!-- Cierre del cuerpo del documento -->
+</body>
+
+<!-- Cierre definitivo del documento HTML -->
+</html>
