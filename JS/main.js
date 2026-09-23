@@ -1,21 +1,47 @@
-document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
-  event.preventDefault(); // Evita que la página se recargue
+/* ==========================================================================
+   LÓGICA DEL MENÚ DE NAVEGACIÓN (Alberto)
+   Responsabilidad: Despliegue responsivo del menú y cambio de ícono
+   ========================================================================== */
 
-  // Capturar los valores
-  const nombre = document.getElementById('nombre').value.trim();
-  const correo = document.getElementById('correo').value.trim();
-  const mensaje = document.getElementById('mensaje').value.trim();
-  const mensajeError = document.getElementById('mensaje-error');
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const toggleIcon = document.getElementById('toggle-icon');
 
-  // Validar campos vacíos
-  if (nombre === '' || correo === '' || mensaje === '') {
-    mensajeError.style.color = 'red';
-    mensajeError.textContent = 'Por favor, llena todos los campos.';
-  } else {
-    mensajeError.style.color = 'green';
-    mensajeError.textContent = '¡Gracias! Mensaje enviado con éxito.';
+  if (navToggle && navMenu) {
+    // Abrir o cerrar menú al tocar el botón hamburguesa
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
 
-    // Limpiar el formulario
-    document.getElementById('formulario-contacto').reset();
+      // Cambiar entre el ícono de barras (hamburguesa) y la X
+      if (toggleIcon) {
+        toggleIcon.classList.toggle('fa-bars');
+        toggleIcon.classList.toggle('fa-xmark');
+      }
+    });
+
+    // Cerrar el menú automáticamente al tocar cualquier enlace de navegación
+    const enlaces = navMenu.querySelectorAll('.nav-link');
+    enlaces.forEach(enlace => {
+      enlace.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        if (toggleIcon) {
+          toggleIcon.classList.add('fa-bars');
+          toggleIcon.classList.remove('fa-xmark');
+        }
+      });
+    });
+
+    // Cerrar el menú si el usuario hace clic afuera de la barra
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        navMenu.classList.remove('active');
+        if (toggleIcon) {
+          toggleIcon.classList.add('fa-bars');
+          toggleIcon.classList.remove('fa-xmark');
+        }
+      }
+    });
   }
 });

@@ -21,10 +21,7 @@ function irAProductos() {
   }
 }
 
-// Conectar TODOS los botones a Productos
-document.querySelectorAll('.btn-danger, .btn-outline-light, .btn-dark').forEach(boton => {
-  boton.addEventListener('click', irAProductos);
-});
+
 
 // Corregir enlace "Destacados" de la barra de navegación
 document.querySelector('a.nav-link[href="#destacados"]').addEventListener('click', function(e) {
